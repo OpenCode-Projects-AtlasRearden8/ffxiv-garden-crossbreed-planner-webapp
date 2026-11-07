@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FFXIV Garden Crossbreed Planner</title>
+  <meta name="description" content="Plan FFXIV garden crossbreeds: seed pairings, circular bed layout, day-by-day watering and tending board. Local save, no account." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <h1>&#127793; FFXIV Garden Crossbreed Planner</h1>
+    <p class="tagline">Pick a crop, see the plan, water the beds. Saves in your browser — no account, no backend.</p>
+  </header>
+
+  <main id="main" class="layout">
+
+    <!-- Planner -->
+    <section class="panel" aria-labelledby="planner-h">
+      <h2 id="planner-h">1. The Plan</h2>
+
+      <div class="controls">
+        <label>Garden patch
+          <select id="patch">
+            <option value="round">Round Garden Patch — 4 beds</option>
+            <option value="oblong">Oblong Garden Patch — 6 beds</option>
+            <option value="deluxe" selected>Deluxe Garden Patch — 8 beds</option>
+          </select>
+        </label>
+
+        <label>Target crop
+          <select id="target"><option>Loading crops…</option></select>
+        </label>
+      </div>
+
+      <div id="plans" class="plans"></div>
+      <p id="plan-note" class="note"></p>
+    </section>
+
+    <!-- Bed map -->
+    <section class="panel" aria-labelledby="bedmap-h">
+      <h2 id="bedmap-h">2. Bed Map</h2>
+      <p class="hint">Numbered beds on the ring, bed 1 at 12 o'clock, planting clockwise. Colors = seed type. Click a bed on the map (or a row below) to plant it with that bed's planned seed.</p>
+      <div id="map-wrap" class="map-wrap">
+        <svg id="bedmap" viewBox="0 0 100 100" role="img" aria-label="Circular bed layout" width="100%" height="auto"></svg>
+      </div>
+      <div id="legend" class="legend"></div>
+      <p id="soil-note" class="note">Soil reminder: Thanalan Topsoil gives the best intercross chances.</p>
+    </section>
+
+    <!-- Daily board -->
+    <section class="panel" aria-labelledby="board-h">
+      <h2 id="board-h">3. Daily Board</h2>
+      <p class="hint">Water once per earth day; tend heavier care crops. Ticks save automatically to this browser.</p>
+
+      <div class="board-controls">
+        <button id="water-all" type="button">Water all today</button>
+        <button id="tend-all" type="button">Tend all today</button>
+        <button id="clear-day" type="button" class="ghost">Clear today</button>
+      </div>
+
+      <table id="board" aria-label="Watering and tending board">
+        <thead>
+          <tr id="board-head"></tr>
+        </thead>
+        <tbody id="board-body"></tbody>
+      </table>
+
+      <div class="board-controls">
+        <button id="clear-board" type="button" class="danger">Clear whole board</button>
+      </div>
+      <p id="board-saved" class="note"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Unofficial fan tool. FFXIV is a trademark of Square Enix Holdings Co., Ltd.
+       Built by Asdale Dynamics, LLC · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a> · MIT licensed.</p>
+    <p class="print-site">Planner data is a community-researched starter set — verify crosses in-game.</p>
+    <p class="no-print"><button id="print" type="button">Print bed map</button></p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

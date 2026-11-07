@@ -1,0 +1,23 @@
+{
+  "name": "ffxiv-garden-crossbreed-planner-webapp",
+  "version": "1.0.0",
+  "description": "Static webapp for FFXIV housing gardeners: pick a target crop, get seed pairing suggestions on a color-coded circular bed layout, and track daily watering and tending. No backend, no account.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/",
+    "start": "npx --yes serve -l 8080 ."
+  },
+  "keywords": [
+    "ffxiv",
+    "gardening",
+    "crossbreeding",
+    "housing",
+    "planner"
+  ],
+  "license": "MIT",
+  "author": "Asdale Dynamics, LLC",
+  "private": true,
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}
